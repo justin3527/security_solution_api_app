@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 from . models import GuessNumbers
-from .forms import PostForm
+from .form import PostForm
 
 def test(request):
     return render(request, 'solution/test.html', {})
