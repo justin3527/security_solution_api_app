@@ -11,7 +11,7 @@ def test(request):
 
 
 def index(request):
-    solution = getAllUser.objects.all()
+    solution = getAllUser()
 
     return render(request, "solution/default.html", {"solution":solution})
 
