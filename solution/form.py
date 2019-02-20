@@ -1,8 +1,8 @@
 from django import forms
 from .models import GuessNumbers
 
-class PostForm(forms.ModelForm):
+class PostForm(forms.models):
 
     class Meta:
         model = GuessNumbers
-        field = ('name', 'text',)
+        fields = ('name', 'text',)
