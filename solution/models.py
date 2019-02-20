@@ -15,9 +15,13 @@ class getAllUser:
     password = "Password1!" # "Password1"
 
     def __init__(self):
-        conn = http.client.HTTPSConnection("{}:9060".format(host), context=ssl.SSLContext(ssl.PROTOCOL_TLSv1))
+        self.host = "10.0.0.51" # "10.20.30.40"
+        self.user = "ERSAdmin" # "ersad"
+        self.password = "Password1!" # "Password1"
 
-        creds = str.encode(':'.join((user, password)))
+        conn = http.client.HTTPSConnection("{}:9060".format(self.host), context=ssl.SSLContext(ssl.PROTOCOL_TLSv1))
+
+        creds = str.encode(':'.join((self.user, self.password)))
         encodedAuth = bytes.decode(base64.b64encode(creds))
 
         headers = {
