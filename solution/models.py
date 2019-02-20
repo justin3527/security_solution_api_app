@@ -16,6 +16,7 @@ class GuessNumbers(models.Model):
     update_date = models.DateTimeField()
 
     def generate(self):
+        self.text = "solution hello"
         self.lottos = ""
         origin = list(range(1,46))
         for _ in ramge(0, self.num_lotto):
