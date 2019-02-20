@@ -8,13 +8,13 @@ import base64
 import ssl
 import sys
 
-class getAllUser():
+class getAllUser:
     # host and authentication credentials
     host = "10.0.0.51" # "10.20.30.40"
     user = "ERSAdmin" # "ersad"
     password = "Password1!" # "Password1"
 
-    def generate(self):
+    def __init__(self):
         conn = http.client.HTTPSConnection("{}:9060".format(host), context=ssl.SSLContext(ssl.PROTOCOL_TLSv1))
 
         creds = str.encode(':'.join((user, password)))
@@ -35,7 +35,6 @@ class getAllUser():
         print("Header:\n{}".format(res.headers))
         print("Body:\n{}".format(data.decode("utf-8")))
 
-        self.save()
 
 
 
