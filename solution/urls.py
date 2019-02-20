@@ -1,6 +1,5 @@
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
-from solution import views
 from . import views
 
 urlpatterns = [
