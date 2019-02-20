@@ -12,7 +12,7 @@ def test(request):
 def index(request):
     solution = GuessNumbers.objects.all()
 
-    return render(request, "solution/default.html", {"lottos":lottos})
+    return render(request, "solution/default.html", {"solution":solution})
 
 
 def post(request):
