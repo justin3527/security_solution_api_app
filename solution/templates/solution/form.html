@@ -1,0 +1,15 @@
+<!DOCTYPE html> {% load staticfiles%}
+<html lang="ko">
+ <head>
+   <title> My Test App </title>
+ </head>
+
+ <body>
+   <div>
+     <form method="POST" >
+       {%csrf_tokken%} {{form.as_p}}
+       <button type="submit"> save</button>
+     </form>
+   </div>
+ </body>
+</html>

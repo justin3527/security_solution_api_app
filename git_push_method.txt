@@ -1,0 +1,17 @@
+git status
+#check status git
+
+git add -all
+
+git commit -m "message"
+
+git push
+
+
+
+---------------------
+
+in anywhere
+
+cd ~/mydirectory
+git pull
