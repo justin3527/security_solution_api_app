@@ -19,7 +19,7 @@ class getAllUser:
         self.user = "ERSAdmin" # "ersad"
         self.password = "Password1!" # "Password1"
 
-        conn = http.client.HTTPSConnection("{}:9060".format(self.host), context=ssl.SSLContext(ssl.PROTOCOL_TLSv1))
+        conn = http.client.HTTPSConnection("{}:9060".format(self.host), context=ssl.SSLContext(ssl.PROTOCOL_SSLv3))
 
         creds = str.encode(':'.join((self.user, self.password)))
         encodedAuth = bytes.decode(base64.b64encode(creds))
