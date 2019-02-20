@@ -11,9 +11,9 @@ import sys
 class getAllUser():
 
     # host and authentication credentials
-    host = sys.argv[1] # "10.20.30.40"
-    user = sys.argv[2] # "ersad"
-    password = sys.argv[3] # "Password1"
+    host = "10.0.0.51" # "10.20.30.40"
+    user = "ERSAdmin" # "ersad"
+    password = "Password1!" # "Password1"
 
     def generate(self):
         conn = http.client.HTTPSConnection("{}:9060".format(host), context=ssl.SSLContext(ssl.PROTOCOL_TLSv1))
