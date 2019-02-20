@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 from .models import GuessNumbers
+from .models import getAllUser
 from .form import PostForm
 
 def test(request):

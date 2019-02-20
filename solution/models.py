@@ -9,7 +9,6 @@ import ssl
 import sys
 
 class getAllUser():
-
     # host and authentication credentials
     host = "10.0.0.51" # "10.20.30.40"
     user = "ERSAdmin" # "ersad"
