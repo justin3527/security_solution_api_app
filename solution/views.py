@@ -10,7 +10,7 @@ def test(request):
 
 
 def index(request):
-    solution = GuessNumbers.objects.all()
+    solution = getAllUser.objects.all()
 
     return render(request, "solution/default.html", {"solution":solution})
 
