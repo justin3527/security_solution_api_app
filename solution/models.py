@@ -9,14 +9,14 @@ class GuessNumbers(models.Model):
 
     lottos = models.CharField(max_length = 255, default = '[1,2,3,4,5,6]')
 
-    text = models.CharField(max_length = 255)
+    text = models.CharField(max_length = 255, default = '"solution hello"')
 
     num_lotto = models.IntegerField(default = 5)
 
     update_date = models.DateTimeField()
 
     def generate(self):
-        self.text = "solution hello"
+
         self.lottos = ""
         origin = list(range(1,46))
         for _ in ramge(0, self.num_lotto):
