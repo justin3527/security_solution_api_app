@@ -1,0 +1,133 @@
+<!doctype html>
+
+<html>
+  <head>
+  <title>Home</title>
+  
+  <script language="javascript">
+
+    function ruleDisplay(frm) {
+   
+      var userIndex = frm.policyList.selectedIndex;
+      var c = 0
+      console.log(userIndex)
+      "{{fp.getPolicyRules}}"
+      var str = "\<Policy Rules\>"+"\n"
+      if (userIndex == 0) {
+        {% for i in fp.policyRules%}
+         str =  str + "{{i.name}}" + "\n"
+       
+ 	     {%endfor%}
+      }
+      
+	    frm.policyRules.value = str
+      return true;
+    }
+    
+</script>
+
+  </head>
+  
+  
+  <body>
+    <h2 style="color:red">FirePower  </h3>
+    <h3>Server Information</h3>
+    <form class="loginServer" action="" method="post">
+      <input type="text" name="serverIP" placeholder="Server IP" value={{fp.serverIP}}></input>
+      <input type="text" name="adminID" placeholder="Administrator ID" value={{fp.adminID}}> </input>
+      <input type="password" name="adminPW" placeholder="Administrator Password" value={{fp.adminPW}}> </input>
+      <button type="submit" name="btn" value="enter" >Login</button>
+    
+    
+    <br><br><br>
+
+    <h3>System Information</h3>
+    <form class="serverInfo" action="" method="post">
+      <p>Geo Version : {{fp.serverInfo.geoVersion}}</p>
+      <p>Server Version : {{fp.serverInfo.serverVersion}}</p>
+      <p>SRU Version : {{fp.serverInfo.sruVersion}}</p>
+      <p>VDB Version : {{fp.serverInfo.vdbVersion}}</p>
+    </form>
+
+    <br><br><br>
+
+    <h3>Access Policies</h3>
+    <form>
+    <div class="policyInfo">
+      <select name="policyList" size="5" onChange="ruleDisplay(this.form)">
+       {% for policies in fp.accessPolicies %}
+        <option>{{policies.name}}</option>
+      {% endfor %}
+      </select>
+   
+      <textarea name="policyRules" rows="5" cols="40">Policy Rules</textarea>
+    </form>
+    </div>
+
+    <br>
+    
+    <h3>Policy lists</h3>
+    <select name="filepolicyList" size="5" style="width:250px;height:100px;">
+        <option>&lt;FILE Policies&gt;</option>
+       {% for policies in fp.filePolicies %}
+        <option>{{policies.name}}</option>
+      {% endfor %}
+      </select>
+    <select name="natpolicyList" size="5" style="width:250px;height:100px;">
+      <option>&lt;NAT Policies&gt;</option>
+       {% for policies in fp.natPolicies %}
+        <option>{{policies.name}}</option>
+      {% endfor %}
+      </select>
+      
+    <select name="intrusionpolicyList" size="5" style="width:250px;height:100px;">
+       <option>&lt;Intrusion Policies&gt;</option>
+       {% for policies in fp.intrusionPolicies %}
+        <option>{{policies.name}}</option>
+      {% endfor %}
+      </select>
+    
+
+    <br>
+
+    <h3>Alert lists</h3>
+    <select name="snmppolicyList" size="5" style="width:250px;height:100px;">
+       <option>&lt;Snmp Alerts&gt;</option>
+       {% for policies in fp.snmpAlerts %}
+        <option>{{policies.name}}</option>
+      {% endfor %}
+      </select>
+      
+     <select name = "syslogpolicyList" size="5" style="width:250px;height:100px;">
+       <option>&lt;Syslog Alerts&gt;</option>
+       {% for policies in fp.syslogAlerts %}
+        <option>{{policies.name}}</option>
+      {% endfor %}
+      </select> 
+    
+    
+    <br><br><br>
+
+    <h3>Create Access Policy</h3>
+    
+      <input type="text" name="policyName" placeholder="Policy Name"> </input>
+      <button type="summit" name="btn" value="policyCreateBtn">Create</button>
+      <button type="summit" name="btn" value="policydeleteBtn">delete</button>
+    
+
+
+    <br>
+
+    <h3>Create Access Policy Rule</h3>
+    <input type="text" name="policyName" placeholder="Policy Name"> </input>
+    <input type="text" name="ruleName" placeholder="rule Name"> </input>
+    <button type="summit" name="btn" value="ruleCreateBtn" >Create</button>
+    <button type="summit" name="btn" value="ruledeleteBtn" >delete</button>
+
+    
+
+    
+    </form>
+  </body>
+
+</html>

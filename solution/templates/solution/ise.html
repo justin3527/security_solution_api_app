@@ -1,0 +1,86 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+  <title>Home</title>
+  
+  <script language="javascript">
+
+    function userDetailDisplay(frm) {
+   
+      var userIndex = frm.userList.selectedIndex;
+      var c = 0
+      
+      "{{solution.getUserDetail}}"
+      {% for i in solution.userDetails%}
+        if(userIndex == c){
+          var str = 'id : ' + "{{i.id}}" + '\n'+'name : ' + "{{i.name}}" + '\n'+'enabled : ' + "{{i.enabled}}" + '\n'+'email : ' + "{{i.email}}" + '\n'+'password : ' + "{{i.password}}" + '\n'+'expiryDate : ' + "{{i.expiryDate}}"+ '\n'+'passwordIDStore : ' + "{{i.passwordIDStore}}"     
+          frm.userDetail.value =  str
+          c = c+1
+        }
+        else{
+          c = c+1
+        }
+        
+ 	     {%endfor%}
+	
+      return true;
+    }
+    
+
+
+</script>
+  </head>
+  <body>
+    <h2 style="color:blue">ISE </h3><h3>Server Information</h3>
+    <form class="loginServer" action="" method="post">
+      <input type="text" name="serverIP" placeholder="Server IP" value={{solution.host}}></input>
+      <input type="text" name="adminID" placeholder="Administrator ID" value={{solution.admin}}> </input>
+      <input type="password" name="adminPW" placeholder="Administrator Password" value={{solution.password}} ></input>
+      <button type="submit" name="btn" value="enter" >Login</button>
+    </form>
+    
+    <br><br><br>
+
+    <h3>Users</h3>
+    <form>
+    <div class="userInfo" >
+      <select name="userList" size="8" style="width:150px;height:120px;" onChange="userDetailDisplay(this.form)">
+      {% for users in solution.users %}
+        <option>{{users.name}}</option>
+      {% endfor %}
+      </select>
+
+      <textarea name="userDetail" rows="7" cols="40">User Detail Information</textarea>
+    </div>
+    
+    </form>
+    <br><br><br>
+
+    <h3>Create</h3>
+    <form class="createUser" action="" method="post">
+    {% csrf_token %}
+      <input type="text" name="userID" placeholder="User ID"> </input>
+      <input type="text" name="userName" placeholder="User Name"> </input>
+      <input type="password" name="userPW" placeholder="User Password"> </input>
+      <button type="submit" name="btn" value="create" >Create</button><br>
+      <p>RESULT : {{solution.createResult}}</p>
+    </form>
+
+
+    <br><br><br>
+
+    <h3>Change</h3>
+    <form class="changeUser" action="" method="post">
+      <input type="text" name="cuserID" placeholder="User ID"> </input>
+      <input type="password" name="cuserPW" placeholder="Current User Password"> </input>
+      <input type="password" name="nuserPW" placeholder="New User Password"> </input>
+      <button type="submit" name="btn" value="change" >Change</button>
+      <p>RESULT : {{solution.changeResult}}</p>
+    </form>
+
+  </body>
+
+</html>

@@ -1,0 +1,100 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <title>Home</title>
+  
+    <script language="javascript">
+
+
+    </script>
+  </head>
+  <body>
+    <h2 style="color:green">STW </h3>
+    <h3>Server Information</h3>
+    <form class="loginServer" action="" method="post">
+      <input type="text" name="serverIP" placeholder="Server IP" value={{stw.serverIP}}></input>
+      <input type="text" name="adminID" placeholder="Administrator ID" value={{stw.adminID}}> </input>
+      <input type="password" name="adminPW" placeholder="Administrator Password" value={{stw.adminPW}} ></input>
+      <button type="submit" name="btn" value="enter" >Login</button>
+    </form>
+    <p>{{stw.data}}</p>
+    <br><br><br>
+    
+      <div style="float: left;padding : 10px;">
+      <h3>Tenant List</h3>
+      <select name="tenantList" size="5" style="width:250px;height:100px;">
+         <option>&lt;TenantList&gt;</option>
+        {% for list in stw.tenants %}
+          <option>{{list.displayName}}</option>
+        {% endfor %}
+        </select>
+    </div>
+
+    <div style="padding : 10px;">
+      <h3>External Geos List</h3>
+      <select size="5" style="width:250px;height:100px;">
+         <option>&lt;External Geos&gt;</option>
+           {% for list in stw.eGeos %}
+          <option>{{list.displayName}}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+
+
+    <div style="float: left;padding : 10px;">
+      <h3>Internal Hosts List</h3>
+      <select size="5" style="width:250px;height:100px;">
+         <option>&lt;Internal Hosts&gt;</option>
+          {% for list in stw.intHosts  %}
+          <option>{{list.displayName}}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+    <div style="float: left;padding : 10px;">
+      <h3>External Hosts List</h3>
+      <select size="5" style="width:250px;height:100px;">
+         <option>&lt;External Hosts&gt;</option>
+          {% for list in stw.exHosts  %}
+          <option>{{list.displayName}}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+    <div style="padding : 10px;">
+      <h3>Custom Hosts List</h3>
+      <select size="5" style="width:250px;height:100px;">
+         <option>&lt;Custom Hosts&gt;</option>
+          {% for list in stw.cusHosts  %}
+          <option>{{list.displayName}}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+    <div style="float: left;padding : 10px;">
+      <h3>Security Events List</h3>
+      <select size="5" style="width:250px;height:100px;">
+         <option>&lt;Security Events&gt;</option>
+          {% for list in stw.securityEvents  %}
+          <option>{{list.name}}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+    <div style="float: left;padding : 10px;">
+      <h3>External Threats List</h3>
+      <select size="5" style="width:250px;height:100px;">
+         <option>&lt;External Threats&gt;</option>
+          {% for list in stw.exThreats  %}
+          <option>{{list.displayName}}</option>
+          {% endfor %}
+        </select>
+    </div>
+   
+  </body>
+
+</html>
